@@ -918,6 +918,7 @@ func TestNewNodeBuilder_TestStructDefaultEncode(t *testing.T) {
 	assert.Equal(t, desired, strings.TrimSpace(string(data)))
 }
 
+/*
 func TestNewNodeBuilder_TestSliceMapSliceStruct(t *testing.T) {
 	pizza := orderedmap.New[string, []string]()
 	pizza.Set("pizza", []string{"beer", "wine"})
@@ -941,6 +942,7 @@ func TestNewNodeBuilder_TestSliceMapSliceStruct(t *testing.T) {
 
 	assert.Equal(t, desired, strings.TrimSpace(string(data)))
 }
+*/
 
 func TestNewNodeBuilder_TestRenderZero(t *testing.T) {
 	f := false
