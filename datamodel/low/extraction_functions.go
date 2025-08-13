@@ -19,11 +19,11 @@ import (
 	"sync"
 	"unsafe"
 
-	jsonpathconfig "github.com/pkg-base/jsonpath/pkg/jsonpath/config"
+	jsonpathconfig "github.com/pkg-base/libopenapi/internal/jsonpath/config"
 
-	"github.com/pkg-base/jsonpath/pkg/jsonpath"
 	"github.com/pkg-base/libopenapi/datamodel"
 	"github.com/pkg-base/libopenapi/index"
+	"github.com/pkg-base/libopenapi/internal/jsonpath"
 	"github.com/pkg-base/libopenapi/orderedmap"
 	"github.com/pkg-base/libopenapi/utils"
 	"github.com/pkg-base/yaml"

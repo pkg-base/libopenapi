@@ -14,8 +14,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/pkg-base/jsonpath/pkg/jsonpath"
-	jsonpathconfig "github.com/pkg-base/jsonpath/pkg/jsonpath/config"
+	"github.com/pkg-base/libopenapi/internal/jsonpath"
+	jsonpathconfig "github.com/pkg-base/libopenapi/internal/jsonpath/config"
 
 	"github.com/pkg-base/yaml"
 )

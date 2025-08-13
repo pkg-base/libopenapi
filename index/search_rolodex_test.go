@@ -15,8 +15,8 @@ import (
 
 	"context"
 
-	"github.com/pkg-base/jsonpath/pkg/jsonpath"
 	"github.com/pkg-base/libopenapi/datamodel"
+	"github.com/pkg-base/libopenapi/internal/jsonpath"
 	"github.com/pkg-base/yaml"
 	"github.com/stretchr/testify/assert"
 )

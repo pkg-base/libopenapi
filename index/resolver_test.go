@@ -11,8 +11,8 @@ import (
 	"path/filepath"
 	"testing"
 
-	"github.com/pkg-base/jsonpath/pkg/jsonpath"
 	"github.com/pkg-base/libopenapi/datamodel"
+	"github.com/pkg-base/libopenapi/internal/jsonpath"
 	"github.com/pkg-base/libopenapi/utils"
 
 	"context"
