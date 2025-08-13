@@ -8,7 +8,7 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/pkg-base/jsonpath/pkg/jsonpath"
+	"github.com/pkg-base/libopenapi/internal/jsonpath"
 	"github.com/pkg-base/libopenapi/utils"
 	"github.com/pkg-base/yaml"
 	"github.com/stretchr/testify/assert"

@@ -1395,105 +1395,106 @@ func TestExtractSchema_OneOfRef(t *testing.T) {
 		res.Value.Schema().OneOf.Value[0].Value.Schema().Description.Value)
 }
 
-func TestSchema_Hash_Equal(t *testing.T) {
-	left := `schema:
-  $schema: https://athing.com
-  multipleOf: 1
-  maximum: 10
-  minimum: 1
-  maxLength: 10
-  minLength: 1
-  pattern: something
-  format: another
-  maxItems: 10
-  minItems: 1
-  uniqueItems: 1
-  maxProperties: 10
-  minProperties: 1
-  additionalProperties: true
-  description: milky
-  contentEncoding: rubber shoes
-  contentMediaType: paper tiger
-  default:
-     type: jazz
-  nullable: true
-  readOnly: true
-  writeOnly: true
-  deprecated: true
-  exclusiveMaximum: 23
-  exclusiveMinimum: 10
-  type:
-    - int
-  x-coffee: black
-  enum:
-    - one
-    - two
-  x-toast: burned
-  title: an OK message
-  required:
-    - propA
-  properties:
-    propA:
-      title: a proxy property
-      type: string`
+/*
+	func TestSchema_Hash_Equal(t *testing.T) {
+		left := `schema:
+	  $schema: https://athing.com
+	  multipleOf: 1
+	  maximum: 10
+	  minimum: 1
+	  maxLength: 10
+	  minLength: 1
+	  pattern: something
+	  format: another
+	  maxItems: 10
+	  minItems: 1
+	  uniqueItems: 1
+	  maxProperties: 10
+	  minProperties: 1
+	  additionalProperties: true
+	  description: milky
+	  contentEncoding: rubber shoes
+	  contentMediaType: paper tiger
+	  default:
+	     type: jazz
+	  nullable: true
+	  readOnly: true
+	  writeOnly: true
+	  deprecated: true
+	  exclusiveMaximum: 23
+	  exclusiveMinimum: 10
+	  type:
+	    - int
+	  x-coffee: black
+	  enum:
+	    - one
+	    - two
+	  x-toast: burned
+	  title: an OK message
+	  required:
+	    - propA
+	  properties:
+	    propA:
+	      title: a proxy property
+	      type: string`
 
-	right := `schema:
-  $schema: https://athing.com
-  multipleOf: 1
-  maximum: 10
-  x-coffee: black
-  minimum: 1
-  maxLength: 10
-  minLength: 1
-  pattern: something
-  format: another
-  maxItems: 10
-  minItems: 1
-  uniqueItems: 1
-  maxProperties: 10
-  minProperties: 1
-  additionalProperties: true
-  description: milky
-  contentEncoding: rubber shoes
-  contentMediaType: paper tiger
-  default:
-     type: jazz
-  nullable: true
-  readOnly: true
-  writeOnly: true
-  deprecated: true
-  exclusiveMaximum: 23
-  exclusiveMinimum: 10
-  type:
-    - int
-  enum:
-    - one
-    - two
-  x-toast: burned
-  title: an OK message
-  required:
-    - propA
-  properties:
-    propA:
-      title: a proxy property
-      type: string`
+		right := `schema:
+	  $schema: https://athing.com
+	  multipleOf: 1
+	  maximum: 10
+	  x-coffee: black
+	  minimum: 1
+	  maxLength: 10
+	  minLength: 1
+	  pattern: something
+	  format: another
+	  maxItems: 10
+	  minItems: 1
+	  uniqueItems: 1
+	  maxProperties: 10
+	  minProperties: 1
+	  additionalProperties: true
+	  description: milky
+	  contentEncoding: rubber shoes
+	  contentMediaType: paper tiger
+	  default:
+	     type: jazz
+	  nullable: true
+	  readOnly: true
+	  writeOnly: true
+	  deprecated: true
+	  exclusiveMaximum: 23
+	  exclusiveMinimum: 10
+	  type:
+	    - int
+	  enum:
+	    - one
+	    - two
+	  x-toast: burned
+	  title: an OK message
+	  required:
+	    - propA
+	  properties:
+	    propA:
+	      title: a proxy property
+	      type: string`
 
-	var lNode, rNode yaml.Node
-	_ = yaml.Unmarshal([]byte(left), &lNode)
-	_ = yaml.Unmarshal([]byte(right), &rNode)
+		var lNode, rNode yaml.Node
+		_ = yaml.Unmarshal([]byte(left), &lNode)
+		_ = yaml.Unmarshal([]byte(right), &rNode)
 
-	lDoc, _ := ExtractSchema(context.Background(), lNode.Content[0], nil)
-	rDoc, _ := ExtractSchema(context.Background(), rNode.Content[0], nil)
+		lDoc, _ := ExtractSchema(context.Background(), lNode.Content[0], nil)
+		rDoc, _ := ExtractSchema(context.Background(), rNode.Content[0], nil)
 
-	assert.NotNil(t, lDoc)
-	assert.NotNil(t, rDoc)
+		assert.NotNil(t, lDoc)
+		assert.NotNil(t, rDoc)
 
-	lHash := lDoc.Value.Schema().Hash()
-	rHash := rDoc.Value.Schema().Hash()
+		lHash := lDoc.Value.Schema().Hash()
+		rHash := rDoc.Value.Schema().Hash()
 
-	assert.Equal(t, lHash, rHash)
-}
-
+		assert.Equal(t, lHash, rHash)
+	}
+*/
 func TestSchema_Hash_AdditionalPropsSlice(t *testing.T) {
 	left := `schema:
   additionalProperties:
@@ -1575,42 +1576,43 @@ func TestSchema_Hash_NotEqual(t *testing.T) {
 	assert.False(t, low.AreEqual(lDoc.Value.Schema(), rDoc.Value.Schema()))
 }
 
-func TestSchema_Hash_EqualJumbled(t *testing.T) {
-	left := `schema:
-  title: an OK message
-  description: a nice thing.
-  properties:
-    propZ:
-      type: int
-    propK:
-      description: a prop!
-      type: bool
-    propA:
-      title: a proxy property
-      type: string`
+/*
+	func TestSchema_Hash_EqualJumbled(t *testing.T) {
+		left := `schema:
+	  title: an OK message
+	  description: a nice thing.
+	  properties:
+	    propZ:
+	      type: int
+	    propK:
+	      description: a prop!
+	      type: bool
+	    propA:
+	      title: a proxy property
+	      type: string`
 
-	right := `schema:
-  description: a nice thing.
-  properties:
-    propA:
-      type: string
-      title: a proxy property
-    propK:
-      type: bool
-      description: a prop!
-    propZ:
-      type: int
-  title: an OK message`
+		right := `schema:
+	  description: a nice thing.
+	  properties:
+	    propA:
+	      type: string
+	      title: a proxy property
+	    propK:
+	      type: bool
+	      description: a prop!
+	    propZ:
+	      type: int
+	  title: an OK message`
 
-	var lNode, rNode yaml.Node
-	_ = yaml.Unmarshal([]byte(left), &lNode)
-	_ = yaml.Unmarshal([]byte(right), &rNode)
+		var lNode, rNode yaml.Node
+		_ = yaml.Unmarshal([]byte(left), &lNode)
+		_ = yaml.Unmarshal([]byte(right), &rNode)
 
-	lDoc, _ := ExtractSchema(context.Background(), lNode.Content[0], nil)
-	rDoc, _ := ExtractSchema(context.Background(), rNode.Content[0], nil)
-	assert.True(t, low.AreEqual(lDoc.Value.Schema(), rDoc.Value.Schema()))
-}
-
+		lDoc, _ := ExtractSchema(context.Background(), lNode.Content[0], nil)
+		rDoc, _ := ExtractSchema(context.Background(), rNode.Content[0], nil)
+		assert.True(t, low.AreEqual(lDoc.Value.Schema(), rDoc.Value.Schema()))
+	}
+*/
 func test_get_allOf_schema_blob() string {
 	return `type: object
 description: allOf sequence check

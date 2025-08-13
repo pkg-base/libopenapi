@@ -10,9 +10,9 @@ import (
 	"path/filepath"
 	"strings"
 
-	jsonpathconfig "github.com/pkg-base/jsonpath/pkg/jsonpath/config"
+	jsonpathconfig "github.com/pkg-base/libopenapi/internal/jsonpath/config"
 
-	"github.com/pkg-base/jsonpath/pkg/jsonpath"
+	"github.com/pkg-base/libopenapi/internal/jsonpath"
 	"github.com/pkg-base/libopenapi/utils"
 	"github.com/pkg-base/yaml"
 )
